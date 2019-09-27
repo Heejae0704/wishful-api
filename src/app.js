@@ -1,4 +1,3 @@
-require('dotenv').config()
 const express = require('express')
 const morgan = require('morgan')
 const cors = require('cors')
@@ -21,6 +20,13 @@ app.use(cors({
 app.get('/', (req, res) => {
     res.send('Hello, world!')
 })
+
+app.use('/api/auth', authRouter)
+// app.use('/api/users', usersRouter)
+// app.use('/api/predictions', predictionsRouter)
+// app.use('/api/revelations', revalationsRouter)
+// app.use('/api/comments', commentsRouter)
+// app.use('/api/likes', likesRouter)
 
 app.use(function errorHandler(error, req, res, next) {
     let response

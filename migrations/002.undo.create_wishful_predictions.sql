@@ -1,0 +1,1 @@
+DROP TABLE IF EXISTS wishful_predictions;
