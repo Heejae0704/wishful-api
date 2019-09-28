@@ -4,6 +4,11 @@ const cors = require('cors')
 const helmet = require('helmet')
 const { NODE_ENV, CLIENT_ORIGIN } = require('./config')
 const authRouter = require('./auth/auth-router')
+const predictionsRouter = require('./predictions/predictions-router')
+const revelationsRouter = require('./revelations/revelations-router')
+const usersRouter = require('./users/users-router')
+const commentsRouter = require('./comments/comments-router')
+const likesRouter = require('./likes/likes-router')
 
 const app = express()
 
@@ -13,20 +18,18 @@ const morganOption = (NODE_ENV === 'production')
 
 app.use(morgan(morganOption))
 app.use(helmet())
-app.use(cors({
-    origin: CLIENT_ORIGIN
-}))
+app.use(cors())
 
 app.get('/', (req, res) => {
     res.send('Hello, world!')
 })
 
 app.use('/api/auth', authRouter)
-// app.use('/api/users', usersRouter)
-// app.use('/api/predictions', predictionsRouter)
-// app.use('/api/revelations', revalationsRouter)
-// app.use('/api/comments', commentsRouter)
-// app.use('/api/likes', likesRouter)
+app.use('/api/users', usersRouter)
+app.use('/api/predictions', predictionsRouter)
+app.use('/api/revelations', revelationsRouter)
+app.use('/api/comments', commentsRouter)
+app.use('/api/likes', likesRouter)
 
 app.use(function errorHandler(error, req, res, next) {
     let response

@@ -4,5 +4,6 @@ CREATE TABLE wishful_predictions (
     prediction_what TEXT NOT NULL,
     prediction_when TEXT NOT NULL,
     prediction_commentary TEXT NOT NULL,
-    created_by TEXT REFERENCES wishful_users(user_name) ON DELETE CASCADE NOT NULL 
+    created_by TEXT REFERENCES wishful_users(user_name) ON DELETE CASCADE NOT NULL,
+    created_at TIMESTAMP DEFAULT now()
 );

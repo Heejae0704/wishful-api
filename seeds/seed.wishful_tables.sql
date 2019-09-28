@@ -10,10 +10,10 @@ TRUNCATE
 
 INSERT INTO wishful_users (user_name, full_name, email, password)
 VALUES
-    ('heejaec', 'Heejae Chang', 'heejae0704@gmail.com', ''),
-    ('mikepunch', 'Mike Tyson', 'mkip@gmail.com', ''),
-    ('nofuture', 'James Dean', 'ciga@gmail.com', ''),
-    ('rocksolid', 'Jenifer Stone', 'stone@gmail.com', '');
+    ('heejaec', 'Heejae Chang', 'heejae0704@gmail.com', '$2a$12$.xGdEInDgEjWsF8shTxhguzxwcXtiyGOjPKg4jkxnUh9yZMiA5tqG'),
+    ('mikepunch', 'Mike Tyson', 'mkip@gmail.com', '$2a$12$.yUif6TJsCRH3sZvS9sQ8ubUlRvWhzrg57vI9V5m4agQX1ebS.XK.'),
+    ('nofuture', 'James Dean', 'ciga@gmail.com', '$2a$12$JDHJNZbYKxmbS6FC5rtbFubOpg3v/yqM9J5e1izk/U9I0PnGk0D2m'),
+    ('rocksolid', 'Jenifer Stone', 'stone@gmail.com', '$2a$12$n7Bi5hZeD8by83Gx.g7.pOvZRLfF.QoFVGSSq4oqfyt0UMBE1tWYS');
 
 INSERT INTO wishful_predictions (prediction_who, prediction_what, prediction_when, created_by, prediction_commentary)
 VALUES
