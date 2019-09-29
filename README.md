@@ -27,3 +27,6 @@ When your new project is ready for deploymen, add a new Heroku application with 
 
 ## Others
 To seed DB: psql -U {username} -d {dbname} -f ./seeds/seed.your_file_name.sql
+
+
+psql -U etopxtibwiinzl:5c247065352c719155ee8db6f3c53345800c57c5e4786858d4857324274fd17e -h ec2-23-23-182-18.compute-1.amazonaws.com -p 5432 -d d89eb5hbjtaod0 -f ./seeds/seed.wishful_tables.sql
