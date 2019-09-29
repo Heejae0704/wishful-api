@@ -14,6 +14,23 @@ const RevelationsService = {
       )
   },
 
+  getById(db, id) {
+    return RevelationsService.getAllRevelations(db)
+      .where('id', id)
+      .first()
+  },
+
+  insertRevelation(db, newRevelation) {
+    return db
+      .insert(newRevelation)
+      .into('wishful_revelations')
+      .returning('*')
+      .then(([revelation]) => revelation)
+      .then(revelation =>
+        RevelationsService.getById(db, revelation.id)
+      )
+  },
+
   serializeRevelation(revelation) {
     return {
         id: revelation.id,

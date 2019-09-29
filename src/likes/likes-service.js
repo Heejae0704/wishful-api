@@ -13,6 +13,23 @@ const LikesService = {
       )
   },
 
+  getById(db, id) {
+    return LikesService.getAllLikes(db)
+      .where('id', id)
+      .first()
+  },
+
+  insertLike(db, newLike) {
+    return db
+      .insert(newLike)
+      .into('wishful_likes')
+      .returning('*')
+      .then(([like]) => like)
+      .then(like =>
+        LikesService.getById(db, like.id)
+      )
+  },
+
   serializeLike(like) {
     return {
         id: like.id,
@@ -21,7 +38,14 @@ const LikesService = {
         source_id: like.source_id,
         user_id: like.user_id
         }
-    },
+  },
+
+  deleteLike(db, likeId) {
+    return db
+        .from('wishful_likes')
+        .where('id', likeId)
+        .delete()
+  },
 }
 
 module.exports = LikesService

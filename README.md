@@ -24,3 +24,6 @@ Run the tests `npm test`
 ## Deploying
 
 When your new project is ready for deploymen, add a new Heroku application with `heroku create`. This will make a new git remote called "heroku" and you can then `npm run deploy` which will push to this remote's master branch.
+
+## Others
+To seed DB: psql -U {username} -d {dbname} -f ./seeds/seed.your_file_name.sql

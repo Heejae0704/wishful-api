@@ -13,6 +13,23 @@ const CommentsService = {
       )
   },
 
+  getById(db, id) {
+    return CommentsService.getAllComments(db)
+      .where('id', id)
+      .first()
+  },
+
+  insertComment(db, newComment) {
+    return db
+      .insert(newComment)
+      .into('wishful_comments')
+      .returning('*')
+      .then(([comment]) => comment)
+      .then(comment =>
+        CommentsService.getById(db, comment.id)
+      )
+  },
+
   serializeComment(comment) {
     return {
         id: comment.id,
