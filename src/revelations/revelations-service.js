@@ -10,7 +10,8 @@ const RevelationsService = {
         'evidence',
         'prediction_id',
         'user_id',
-        'revealed_at'
+        'revealed_at',
+        'is_prediction_correct'
       )
   },
 
@@ -38,7 +39,8 @@ const RevelationsService = {
         evidence: xss(revelation.evidence),
         prediction_id: xss(revelation.prediction_id),
         user_id: xss(revelation.user_id),
-        revealed_at: xss(revelation.revealed_at)
+        revealed_at: xss(revelation.revealed_at),
+        is_prediction_correct: revelation.is_prediction_correct
         }
     },
 }
